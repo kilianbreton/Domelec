@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="500.0" minWidth="700.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChoixForControleur">
+   <children>
+      <Label layoutX="297.0" layoutY="28.0" text="Choisissez votre formation" />
+      <TableView fx:id="tv" layoutX="14.0" layoutY="65.0" prefHeight="350.0" prefWidth="678.0">
+         <columns>
+            <TableColumn fx:id="codeCol" prefWidth="75.0" text="CODE" />
+            <TableColumn fx:id="libelleCol" minWidth="50.0" prefWidth="400.0" text="LIBELLE" />
+            <TableColumn fx:id="debutCol" prefWidth="90.0" text="DEBUT" />
+            <TableColumn fx:id="finCol" prefWidth="90.0" text="FIN" />
+         </columns></TableView>
+      <Button layoutX="174.0" layoutY="447.0" mnemonicParsing="false" onAction="#suite" prefHeight="37.0" prefWidth="115.0" text="Suite" />
+      <Button layoutX="441.0" layoutY="447.0" mnemonicParsing="false" onAction="#quitter" prefHeight="37.0" prefWidth="115.0" text="Quitter" />
+   </children>
+</AnchorPane>

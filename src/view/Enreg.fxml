@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="650.0" minWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EnregControleur">
+   <children>
+      <Label layoutX="28.0" layoutY="24.0" text="CodeFormation" />
+      <Label layoutX="25.0" layoutY="59.0" text="Date début" />
+      <Label layoutX="511.0" layoutY="64.0" text="date fin" />
+      <Label layoutX="511.0" layoutY="29.0" text="Libellé" />
+      <Label layoutX="618.0" layoutY="191.0" prefHeight="18.0" prefWidth="178.0" text="Liste des participants" />
+      <Label layoutX="41.0" layoutY="177.0" text="Liste des demandeurs" />
+      <TextField fx:id="tf_codeForm" layoutX="136.0" layoutY="20.0" prefHeight="26.0" prefWidth="188.0" />
+      <TextField fx:id="tf_dateDebut" layoutX="136.0" layoutY="55.0" prefHeight="26.0" prefWidth="188.0" />
+      <TextField fx:id="tf_libelleForm" layoutX="568.0" layoutY="25.0" />
+      <TextField fx:id="tf_dateFin" layoutX="561.0" layoutY="60.0" />
+      <TableView fx:id="tv1" layoutX="27.0" layoutY="224.0" prefHeight="200.0" prefWidth="291.0">
+        <columns>
+          <TableColumn fx:id="codeCol" prefWidth="75.0" text="Code" />
+          <TableColumn fx:id="nomCol" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="prenomCol" prefWidth="75.0" text="Prenom" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tv2" layoutX="530.0" layoutY="233.0" prefHeight="200.0" prefWidth="291.0">
+         <columns>
+            <TableColumn fx:id="codeCol2" prefWidth="75.0" text="Code" />
+            <TableColumn fx:id="nomCol2" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="prenomCol2" prefWidth="75.0" text="Prenom" />
+         </columns>
+      </TableView>
+      <Button layoutX="130.0" layoutY="540.0" mnemonicParsing="false" onAction="#annuler" text="Annuler" />
+      <Button layoutX="692.0" layoutY="547.0" mnemonicParsing="false" onAction="#enregistrer" text="Enregistrer" />
+      <Button layoutX="392.0" layoutY="287.0" mnemonicParsing="false" onAction="#tv1Totv2" text="-&gt;" />
+      <Button layoutX="392.0" layoutY="325.0" mnemonicParsing="false" onAction="#tv2Totv1" text="&lt;-" />
+   </children>
+</AnchorPane>
