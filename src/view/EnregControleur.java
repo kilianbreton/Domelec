@@ -88,8 +88,8 @@ public class EnregControleur {
 		
 		try {
 			dbm  = new DBManager();
-			demandlist = new ListeOp();
-			partlist = new ListeOp();
+			demandlist = new ListeOp("DEMANDER");
+			partlist = new ListeOp("SUIVRE");
 			ResultSet rs = dbm.selectQuery("SELECT * FROM SALARIE INNER JOIN DEMANDER ON SALARIE.Matricule = DEMANDER.Matricule WHERE CodeFormation = '" + fm.getCode() + "';");
 			while(rs.next()) {
 				demandlist.ajouter(new OP(rs.getString("MATRICULE"),rs.getString("NOM"),rs.getString("PRENOM")));
@@ -154,6 +154,9 @@ public class EnregControleur {
 		try {
 			FormationModel fm = ChoixForControleur.getSelectedCodeFrm();
 			ArrayList<String> querys = new ArrayList<String>();
+			
+		
+			
 			ResultSet rs = dbm.selectQuery("SELECT * FROM SALARIE INNER JOIN DEMANDER ON SALARIE.Matricule = DEMANDER.Matricule WHERE CodeFormation = '" + fm.getCode() + "';");	
 			while(rs.next()) {
 				if(!demandlist.estPresent(rs.getString("matricule"))) {
@@ -163,9 +166,12 @@ public class EnregControleur {
 				}
 				
 			}
+			for(int i = 0; i < demandlist.count();i++) {
+				dbm.insertQuery("INSERT INTO DEMANDER (matricule,codeFormation) VALUES ('"+demandlist.get(i).getMatricule()+"','"+fm.getCode()+"');");
+				
+			}
 			
-			
-			
+		
 			rs = dbm.selectQuery("SELECT * FROM SALARIE INNER JOIN SUIVRE ON SALARIE.Matricule = SUIVRE.Matricule WHERE CodeFormation = '" + fm.getCode() + "';");
 			while(rs.next()) {
 				
@@ -174,6 +180,16 @@ public class EnregControleur {
 					
 				}
 			}
+			for(int i = 0; i < partlist.count();i++) {
+				dbm.insertQuery("INSERT INTO SUIVRE (matricule,codeFormation) VALUES ('"+partlist.get(i).getMatricule()+"','"+fm.getCode()+"');");
+				
+			}
+			
+			
+			
+			
+			
+			
 			
 			for(int i = 0; i < querys.size();i++) {
 				dbm.insertQuery(querys.get(i));

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class ListeOp{
+	private String name;
 	private final int MAX = 20;
 	private OP[] elements = new OP[MAX];
 	private int isel;
@@ -11,7 +12,9 @@ public class ListeOp{
 	private int lastindex = 0;
 	
 	
-	public ListeOp() {}
+	public ListeOp(String name) {
+		this.name=name;
+	}
 	
 	public void ajouter(OP unOp) {
 		int cpt = 0;
@@ -105,5 +108,11 @@ public class ListeOp{
 		return data;
 	}
 	
+	public void updateDatabase() {
+		for(int i = 0; i < lastindex; i++) {
+			
+		}
+		
+	}
 	
 }

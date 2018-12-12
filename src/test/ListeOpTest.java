@@ -14,7 +14,7 @@ public class ListeOpTest {
 	
 	@Before
 	public void before() {
-		lst = new ListeOp();
+		lst = new ListeOp("");
 	}
 	
 	@Test
